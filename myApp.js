@@ -10,6 +10,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-app.use("/assets", express.static(__dirname + "/public/style.css"));
+app.use("/public", express.static("/public/style.css"));
 
 module.exports = app;
