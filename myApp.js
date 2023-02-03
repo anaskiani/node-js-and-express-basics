@@ -9,5 +9,5 @@ console.log("Hello World");
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
 });
-app.use("/assets", express.static(__dirname, + "/" + "public/styles.css"));
+app.use("/public", express.static(__dirname, + "/" + "public/styles.css"));
 module.exports = app;
