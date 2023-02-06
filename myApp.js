@@ -1,3 +1,4 @@
+require('dotenv').config();
 let express = require("express");
 let app = express();
 
@@ -13,7 +14,12 @@ app.get("/", (req, res) => {
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/json", (req, res) => {
-  res.json({ message: "Hello json" });
+  res.json({ message: "HELLO JSON" });
+  if(process.env.MESSAGE_STYLE === "allCap"){
+    response = "Hello Json".toUpperCase();
+  } else {
+    response = "Hello Json";      
+  }
 });
 
 module.exports = app;
