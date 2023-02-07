@@ -1,7 +1,7 @@
 let dotenv = require("dotenv").config();
 let express = require("express");
 let app = express();
-const string = req.method + " " + req.path + " - " + req.ip;
+const string = req.method + " " + req.path +  " - " + req.ip;
 let logger = (req, res, next) => {
   console.log(res.send(string));
   next();
