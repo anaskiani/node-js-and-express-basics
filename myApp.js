@@ -9,7 +9,7 @@ let app = express();
 
 // app.use(logger);
 app.use(function middleware(req, res, next) {
-  console.log( `${req.method} ${req.path} - ${req.ip} `)
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 });
 
