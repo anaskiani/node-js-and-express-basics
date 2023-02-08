@@ -2,8 +2,8 @@ let express = require("express");
 require("dotenv").config();
 let app = express();
 let logger = (req, res, next) => {
-  let string = `${req.method} ${req.path} - ${req.ip} `;
-  console.log(string);
+  // let string = `${req.method} ${req.path} - ${req.ip} `;
+  console.log( `${req.method} ${req.path} - ${req.ip} `);
   next();
 };
 
