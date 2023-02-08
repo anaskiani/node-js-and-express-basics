@@ -13,7 +13,7 @@ let app = express();
 //   next();
 // });
 app.use(function middleware(req, res, next) {
-  console.log(`${req.method} ${req.path} - ${req.ip}`)
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 });
 
@@ -37,5 +37,17 @@ app.get("/json", (req, res) => {
   }
   res.json({ message: response });
 });
+app.get(
+  "/now",
+  (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+  },
+  (req, res) => {
+    res.send({
+      time: req.time,
+    });
+  }
+);
 
 module.exports = app;
