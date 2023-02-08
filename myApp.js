@@ -1,13 +1,17 @@
 let express = require("express");
 require("dotenv").config();
 let app = express();
-let logger = (req, res, next) => {
-  // let string = `${req.method} ${req.path} - ${req.ip} `;
-  console.log( `${req.method} ${req.path} - ${req.ip} `);
-  next();
-};
+// let logger = (req, res, next) => {
+//   // let string = `${req.method} ${req.path} - ${req.ip} `;
+//   console.log( `${req.method} ${req.path} - ${req.ip} `);
+//   next();
+// };
 
-app.use(logger);
+// app.use(logger);
+app.use(function middleware(req, res, next) {
+  console.log( `${req.method} ${req.path} - ${req.ip} `)
+  next();
+});
 
 console.log("Hello World");
 // app.get("/", (req, res) => {
