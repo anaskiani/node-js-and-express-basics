@@ -55,5 +55,11 @@ res.json({
   echo: word
 });
 });
+app.route('/name')
+  .get((req, res) => {
+    const { first, last } = req.query;
+    const name = `${first} ${last}`;
+    res.json({ name });
+  });
 
 module.exports = app;
