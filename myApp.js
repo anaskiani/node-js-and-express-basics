@@ -1,11 +1,11 @@
-let dotenv = require("dotenv").config();
 let express = require("express");
+require("dotenv").config();
 let app = express();
-const string = req.method + " " + req.path +  " - " + req.ip;
 let logger = (req, res, next) => {
-  console.log(res.send(string));
+  let string = `${req.method} ${req.path} - ${req.ip} `;
+  console.log(string);
   next();
-}
+};
 
 app.use(logger);
 
@@ -29,6 +29,5 @@ app.get("/json", (req, res) => {
   }
   res.json({ message: response });
 });
-
 
 module.exports = app;
