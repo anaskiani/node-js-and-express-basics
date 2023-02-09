@@ -51,15 +51,14 @@ app.get(
 );
 app.get("/:word/echo", (req, res) => {
   const { word } = req.params;
-res.json({
-  echo: word
-});
-});
-app.route('/name')
-  .get((req, res) => {
-    const { first, last } = req.query;
-    const name = `${first} ${last}`;
-    res.json({ name });
+  res.json({
+    echo: word,
   });
+});
+app.get("/name", (req, res) => {
+  const { first, last } = req.query;
+  const name = `${first} ${last}`;
+  res.json({ name });
+});
 
 module.exports = app;
