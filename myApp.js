@@ -5,6 +5,11 @@ let app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.post("/name", (req, res) => {
+  const { first, last } = req.body;
+  const name = `${first} ${last}`;
+  res.json({ name });
+});
 
 // let logger = (req, res, next) => {
 //   // let string = `${req.method} ${req.path} - ${req.ip} `;
