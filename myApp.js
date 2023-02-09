@@ -1,7 +1,11 @@
 let express = require("express");
 require("dotenv").config();
-const bodyParser = require('body-parser');
+let bodyParser = require("body-parser");
 let app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // let logger = (req, res, next) => {
 //   // let string = `${req.method} ${req.path} - ${req.ip} `;
 //   console.log( `${req.method} ${req.path} - ${req.ip} `);
@@ -17,9 +21,6 @@ app.use(function middleware(req, res, next) {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 });
-
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(bodyParser.json());
 
 console.log("Hello World");
 // app.get("/", (req, res) => {
